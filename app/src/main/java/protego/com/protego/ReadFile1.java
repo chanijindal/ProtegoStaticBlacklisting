@@ -160,6 +160,7 @@ public class ReadFile1 extends Activity {
                     data.LENGTH = tcp.getPayloadLength() + tcp.getHeaderLength();
                     data.CHECKSUM = tcp.checksum();
                     data.CHECKSUM_DESC = tcp.checksumDescription();
+                    Log.d ("CHECK", data.CHECKSUM_DESC);
                 } else if (packet.hasHeader(udp.ID)) {
                     packet.getHeader(udp);
                     data.PROTOCOL = "udp";
@@ -169,6 +170,7 @@ public class ReadFile1 extends Activity {
                     data.LENGTH = udp.getPayloadLength() + udp.getHeaderLength();
                     data.CHECKSUM = udp.checksum();
                     data.CHECKSUM_DESC = udp.checksumDescription();
+                    Log.d ("CHECK", data.CHECKSUM_DESC);
                 }
             } else if (packet.hasHeader(icmp.ID)) {
                 packet.getHeader(icmp);
@@ -186,6 +188,7 @@ public class ReadFile1 extends Activity {
                 data.FLAGS = getFlags(packet);
                 data.CHECKSUM = icmp.checksum();
                 data.CHECKSUM_DESC = icmp.checksumDescription();
+                Log.d ("CHECK", data.CHECKSUM_DESC);
             } else if (packet.hasHeader(ip6.ID)) {
                 packet.getHeader(ip6);
                 data.SRC_IP = FormatUtils.asStringIp6(ip6.source(), true);
@@ -202,6 +205,7 @@ public class ReadFile1 extends Activity {
                     data.LENGTH = tcp.getPayloadLength() + tcp.getHeaderLength();
                     data.CHECKSUM = tcp.checksum();
                     data.CHECKSUM_DESC = tcp.checksumDescription();
+                    Log.d ("CHECK", data.CHECKSUM_DESC);
                 } else if (packet.hasHeader(udp.ID)) {
                     packet.getHeader(udp);
                     data.PROTOCOL = "udp";
@@ -211,6 +215,7 @@ public class ReadFile1 extends Activity {
                     data.LENGTH = udp.getPayloadLength() + udp.getHeaderLength();
                     data.CHECKSUM = udp.checksum();
                     data.CHECKSUM_DESC = udp.checksumDescription();
+                    Log.d ("CHECK", data.CHECKSUM_DESC);
                 }
             }
         }

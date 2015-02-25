@@ -17,6 +17,8 @@ public class KDDConnection {
 
     // Intrinsic features
     int duration = 0;
+    String source_ip = null;
+    String dest_ip = null;
     String protocol = null;
     String service = null;
     String flag = null;
@@ -51,6 +53,8 @@ public class KDDConnection {
 
     private String convertRecord() {
         return (this.duration
+                + "," + this.source_ip
+                + "," + this.dest_ip
                 + "," + this.protocol
                 + ',' + this.service
                 + ',' + this.flag
@@ -99,7 +103,8 @@ public class KDDConnection {
 
         // TIMESTAMP is in milliseconds
         newConn.duration = (int) ((GlobalVariables.endTime - GlobalVariables.startTime)/1000);
-
+        newConn.source_ip = GlobalVariables.connSourceIP;
+        newConn.dest_ip = GlobalVariables.connDestIP;
         newConn.protocol = GlobalVariables.connProtocol;
         newConn.service = GlobalVariables.connService;
         newConn.flag = getFlag(newConn.protocol);
